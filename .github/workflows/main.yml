@@ -21,7 +21,6 @@ jobs:
          git add -u
          git commit -m "github actions: updating file"
          git push
-      - name: Create pull request
-        uses: peter-evans/create-pull-request@v3
-        with:
-	  branch: main    
+        - name: Create pull request
+          uses: peter-evans/create-pull-request@v3
+  
