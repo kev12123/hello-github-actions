@@ -18,9 +18,10 @@ jobs:
       - name: Create new branch and push changes if file has been updated
         if: env.diff_exists == 'true'
         run: |
-	 git checkout -b chore/update-file
-         git push --set-upstream origin chore/update-file
          git add -u
          git commit -m "github actions: updating file"
          git push
-          
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+	  branch: main    
