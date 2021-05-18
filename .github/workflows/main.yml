@@ -19,7 +19,7 @@ jobs:
         if: env.diff_exists == 'true'
         run: |
          git config --global user.name "kgiraldo"
-         git config --global user.email "kevin.giraldo@factset.com
+         git config --global user.email "kevin.giraldo@factset.com"
          git add -u
          git commit -m "github action: updating verifier"
          git push
