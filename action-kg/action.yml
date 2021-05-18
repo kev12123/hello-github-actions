@@ -1,0 +1,12 @@
+name: "Test action"
+description: "Check and compare code from another repository"
+author: "octocat@github.com"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "mic"
+  color: "purple"
+
