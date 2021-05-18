@@ -18,8 +18,8 @@ jobs:
       - name: Create new branch and push changes if verifier has been updated
         if: env.diff_exists == 'true'
         run: |
-         git config --global user.name "kgiraldo"
-         git config --global user.email "kevin.giraldo@factset.com"
+         git config --global user.name "kev12123"
+         git config --global user.email "kevinngiraldo@gmail.com"
          git add -u
          git commit -m "github action: updating verifier"
          git push
