@@ -11,9 +11,9 @@ jobs:
       - name: check if there are changes
         run: |
          if git diff --exit-code; then
-             echo "::set-env name=diff_exitst::false"
+             echo "diff_exists=false" >> $GITHUB_ENV
          else
-             echo "::set-env name=diff_exists::true"
+             echo "diff_exists=true" >> $GITHUB_ENV
          fi
       - name: Create new branch and push changes if file has been updated
         if: env.diff_exists == 'true'
