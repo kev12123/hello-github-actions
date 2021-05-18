@@ -1,26 +1,25 @@
-name: A workflow for my Hello World file
+name: A workflow if verifier has been modified
 on: push
 
 jobs:
   build:
-    name: Hello world action
-    runs:
-      using: 'docker'
-      image: 'Dockerfile'
+    name: Check Verifier
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: ./action-kg
-      - name: check if there are changes
+      - name: check if there are changes in verifier
         run: |
          if git diff --exit-code; then
-             echo "::set-env name=diff_exitst::false"
+             echo "diff_exists=false" >> $GITHUB_ENV
          else
-             echo "::set-env name=diff_exists::true"
+             echo "diff_exists=true" >> $GITHUB_ENV
          fi
-      - name: Create new branch and push changes if file has been updated
+      - name: Create new branch and push changes if verifier has been updated
         if: env.diff_exists == 'true'
         run: |
+         git config --global user.name "kev12123"
+         git config --global user.email "kevinngiraldo@gmail.com"
          git add -u
-         git commit -m "github actions: updating file"
+         git commit -m "github action: updating verifier"
          git push
-  
