@@ -10,6 +10,7 @@ jobs:
       - uses: ./action-kg
       - name: check if there are changes
         run: |
+         apk add curl
          if git diff --exit-code; then
              echo "::set-env name=diff_exitst::false"
          else
